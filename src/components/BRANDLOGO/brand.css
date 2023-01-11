@@ -1,0 +1,23 @@
+.brandlogodiv {
+    margin: 15px 15px 15px 15px;
+    display: flex;
+    justify-content: space-around;
+    height: 130px;
+    align-items: center;
+    border-radius: 23px;
+    background-color: white;
+    padding: 5px;
+
+
+}
+
+.brandlogodiv .imgs {
+    height: 60px;
+    width: 100px;
+}
+
+.brandlogodiv .imgs img {
+    height: 100%;
+    width: 100%;
+    border-radius: 25%;
+}

@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.first-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-decoration: none;
+  height: 3.5rem;
+}
+
+.first-left-detail li {
+  display: inline;
+  cursor: pointer;
+}
+
+.first-left-detail ul,
+.first-right ul {
+  display: flex;
+  gap: 27px;
+}
+
+.first-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+
+}
+
+
+.first-right .wishlist-img img,
+.first-right .cart-img img,
+.first-right .account-img img {
+  height: 22px;
+  padding: 0 5px 0 5px;
+}
+
+.account-img {
+  display: flex;
+  gap: 5px;
+}
+
+
+
+.third-div {
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #a8ece6;
+  padding-left: 60px;
+  padding-right: 60px;
+  width: 100vw;
+  position: sticky;
+  top: 0px;
+  z-index: 9;
+}
+
+.thirdallleft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+}
+
+.logo-middle img {
+  width: 10rem;
+  height: 100%;
+
+}
+
+
+.third-search {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.third-search .cart-img img {
+  height: 28px;
+}
+
+.third-div img {
+  height: 30px;
+}
+
+
+
+/* //search box */
+.search {
+  width: 320px;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus {
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 850px) {
+  .third-right {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search {
+    width: 220px;
+  }
+}
