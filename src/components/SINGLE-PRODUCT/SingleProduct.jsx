@@ -13,13 +13,17 @@ import FlashOnIcon from '@mui/icons-material/FlashOn';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import { useGlobalCart } from '../../context/cart-context';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import IconButton from '@mui/material/IconButton';
+import { useGlobalWishlist } from '../../context/wishlist-context';
 
 const SingleProduct = () => {
 
     const [productDetail, setProductDetail] = useState();
     const [productImg, setProductImg] = useState();
-
+    const [heartClassName, setHeartClassName] = useState('heart-before');
     const { cartId, addToCart } = useGlobalCart();
+    const { addToWishlist } = useGlobalWishlist();
 
     const { id } = useParams();
 
@@ -29,17 +33,23 @@ const SingleProduct = () => {
         setProductImg(res.data.thumbnail)
     }
 
+
     useEffect(() => {
         getProductDetails(id);
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }, [])
+
+    const wishlistHeart = (wId) => {
+        setHeartClassName(heartClassName == "heart-before" ? "heart-after" : "heart-before");
+        addToWishlist(wId);
+    }
 
 
     // {cartId.filter((item) =>
     //     item.id === productDetail.id ?
     //         "GO TO CART" :
     //         "ADD TO CART"
-    // )}
+    // )} () => setHeartClassName(heartClassName == "heart-before" ? "heart-after" : "heart-before")
 
 
 
@@ -61,7 +71,13 @@ const SingleProduct = () => {
                                 }
                             </div>
                             <div className="bigImage">
+
                                 <div className="b-img">
+                                    <span className='heart'>
+                                        <IconButton onClick={() => wishlistHeart(productDetail.id)}>
+                                            <FavoriteIcon className={heartClassName} />
+                                        </IconButton>
+                                    </span>
                                     <img src={productImg} alt="" />
                                 </div>
                             </div>

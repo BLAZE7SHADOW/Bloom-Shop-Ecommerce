@@ -5,12 +5,15 @@ import axios from 'axios';
 import { useGlobalCart } from '../../../context/cart-context';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import IconButton from '@mui/material/IconButton';
 
 
 const Item = ({ cartIdQnt }) => {
 
-    const [cartData, SetCartData] = useState()
+    const [cartData, SetCartData] = useState();
+    const [heartClassName, setHeartClassName] = useState('heart-before');
 
     const { deleteCart } = useGlobalCart();
 
@@ -51,9 +54,9 @@ const Item = ({ cartIdQnt }) => {
                         <option value="5">5</option>
                     </select>
                     <span onClick={() => deleteCart(cartData.id)}>delete</span>
-                    {/* <span>
-                        <FavoriteIcon />
-                    </span> */}
+                    <span>
+                        <FavoriteIcon className={`${heartClassName} 'heart'`} onClick={() => setHeartClassName(heartClassName == "heart-before" ? "heart-after" : "heart-before")} />
+                    </span>
                 </div>
 
             </div>

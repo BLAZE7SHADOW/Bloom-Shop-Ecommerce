@@ -29,7 +29,7 @@ const LoginProvider = ({ children }) => {
     }, [userToken])
 
     const tostifyObj = {
-        position: "top-right",
+        position: "bottom-center",
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,

@@ -5,6 +5,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { LoginProvider } from './context/login-context';
 import { CartProvider } from './context/cart-context';
+import { WishlistProvider } from './context/wishlist-context';
 
 
 
@@ -13,9 +14,11 @@ root.render(
   <React.StrictMode>
     <LoginProvider>
       <CartProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <WishlistProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </WishlistProvider>
       </CartProvider>
     </LoginProvider>
   </React.StrictMode>

@@ -37,6 +37,8 @@
 
 }
 
+
+
 .bigImage img {
     min-height: 300px;
     max-height: 500px;
@@ -91,6 +93,31 @@
     border: 0.3px solid rgba(0, 0, 0, 0.1);
     min-width: 350px;
     min-height: 460px;
+    position: relative;
+}
+
+.heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.heart-before {
+    color: #c1c5c2;
+    cursor: pointer;
+    font-size: 1.5rem !important;
+}
+
+.heart-after {
+    color: red;
+    cursor: pointer;
+    font-size: 1.5rem !important;
+}
+
+.heart-before:active,
+.heart-after:active {
+    transform: scale(1.3);
+    transition: 0.3s;
 }
 
 .bigImage img {

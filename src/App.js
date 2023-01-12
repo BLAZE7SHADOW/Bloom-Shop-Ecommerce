@@ -10,7 +10,7 @@ import { ToastContainer } from 'react-toastify';
 import Cart from './components/CART/Cart';
 import SingleProduct from './components/SINGLE-PRODUCT/SingleProduct';
 import Wishlist from './components/WISHLIST/Wishlist';
-import Emptycart from './components/CART/EMPTYCART/Emptycart';
+
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
   return (
 
     <div className="App">
-      {/* <Emptycart /> */}
+
       <Navbar />
       <Routes>
         <Route path='/' element={<Main />} />
