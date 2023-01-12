@@ -13,19 +13,14 @@ const WishlistProvider = ({ children }) => {
     }, [wishId])
 
     const addToWishlist = (id) => {
-        alert('called')
         setWishId((oldData) => {
-            alert("start")
             if (oldData.length === 0) {
                 return [id]
             }
             return oldData.map((itemId) => {
-                alert('in')
                 if (itemId === id) {
-                    alert("yes");
                     return id;
                 } else {
-                    alert("no")
                     return itemId;
                 }
             })
