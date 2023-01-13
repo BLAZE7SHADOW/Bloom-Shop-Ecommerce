@@ -1,3 +1,9 @@
+:root {
+    --primary-color: red;
+    --button-color: rgb(53, 53, 187);
+    --display-flex: flex;
+}
+
 .body-main {
     /* display: flex;
     justify-content: space-evenly;
@@ -178,7 +184,7 @@
 }
 
 .viewall button {
-    background-color: rgb(53, 53, 187);
+    background-color: var(--button-color);
     color: white;
     padding: 10px;
     border: none;
@@ -223,6 +229,13 @@
     align-items: center;
     height: 100%;
     width: 100%;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.card:hover {
+    border-color: var(--button-color);
+    transition: 0.5s;
 }
 
 .card p {

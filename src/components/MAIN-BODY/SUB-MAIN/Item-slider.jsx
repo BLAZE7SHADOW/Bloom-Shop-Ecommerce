@@ -63,13 +63,14 @@ export default function Itemslider({ category }) {
                                         return (
                                             <>
                                                 <SwiperSlide key={val.id}>
-                                                    <NavLink to={'/single-product/' + val.id}>
-                                                        <Itemdiv
-                                                            title={val.title}
-                                                            price={val.price}
-                                                            img={val.images[0]}
-                                                        />
-                                                    </NavLink>
+                                                    {/* <NavLink to={'/single-product/' + val.id}> */}
+                                                    <Itemdiv
+                                                        id={val.id}
+                                                        title={val.title}
+                                                        price={val.price}
+                                                        img={val.images[0]}
+                                                    />
+                                                    {/* </NavLink> */}
                                                 </SwiperSlide>
                                             </>
 

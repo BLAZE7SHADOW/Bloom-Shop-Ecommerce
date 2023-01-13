@@ -5,21 +5,28 @@ import axios from 'axios';
 import { useGlobalCart } from '../../../context/cart-context';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import IconButton from '@mui/material/IconButton';
+import { useGlobalWishlist } from '../../../context/wishlist-context';
+import { NavLink } from 'react-router-dom';
 
 
 const Item = ({ cartIdQnt }) => {
+
 
     const [cartData, SetCartData] = useState();
     const [heartClassName, setHeartClassName] = useState('heart-before');
 
     const { deleteCart } = useGlobalCart();
+    const { addToWishlist } = useGlobalWishlist();
 
     const getCartData = async (id) => {
         let res = await axios.get(`https://dummyjson.com/products/${id}`)
         SetCartData(res.data);
+    }
+
+    const setWishlistCart = (id) => {
+        setHeartClassName(heartClassName == "heart-before" ? "heart-after" : "heart-before")
+        addToWishlist(cartData.id);
     }
 
     useEffect(() => {
@@ -33,9 +40,11 @@ const Item = ({ cartIdQnt }) => {
             <div className="checkbox">
                 <input type="checkbox" name="" id="" />
             </div>
-            <div className="item-img">
-                <img src={cartData.images[0]} alt="" />
-            </div>
+            <NavLink to={`/single-product/${cartData.id}`} className="item-img">
+                <div>
+                    <img src={cartData.images[0]} alt="" />
+                </div>
+            </NavLink>
             <div className="item-disc">
                 <h3>{cartData.title}</h3>
                 <p>
@@ -63,7 +72,7 @@ const Item = ({ cartIdQnt }) => {
                     </select>
                     <span onClick={() => deleteCart(cartData.id)}>delete</span>
                     <span>
-                        <FavoriteIcon className={`${heartClassName} 'heart'`} onClick={() => setHeartClassName(heartClassName == "heart-before" ? "heart-after" : "heart-before")} />
+                        <FavoriteIcon className={heartClassName} onClick={() => setWishlistCart(cartData.id)} />
                     </span>
                 </div>
 

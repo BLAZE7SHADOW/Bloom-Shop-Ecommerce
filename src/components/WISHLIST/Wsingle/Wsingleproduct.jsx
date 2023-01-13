@@ -1,29 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Wsingle/wsingleproduct.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Rating from '@mui/material/Rating';
 import axios from 'axios';
+import { useGlobalWishlist } from '../../../context/wishlist-context';
+import { useGlobalCart } from '../../../context/cart-context';
 
 
 const Wsingleproduct = ({ Wid }) => {
 
     const [wProduct, setWproduct] = useState([]);
 
+    const { deleteWishlistSingleData } = useGlobalWishlist();
+    const { addToCart } = useGlobalCart();
+
+
 
     const getWishListData = async (Wid) => {
         let resp = await axios.get(`https://dummyjson.com/products/${Wid}`)
-        setWproduct(Wid);
+        setWproduct(resp.data);
     }
+
+    useEffect(() => {
+        getWishListData(Wid);
+    }, [])
+
+
     return (
+        wProduct.length !== 0 &&
         <>
             <div className="w-items">
                 <div className="deleteimg">
                     <div className="w-delete">
-                        <DeleteIcon />
+                        <DeleteIcon onClick={() => deleteWishlistSingleData(wProduct.id)} />
                     </div>
 
                     <div className="ww-img">
-                        <img src={wProduct.thumbnail} alt="" />
+                        <img src={wProduct.images[0]} alt="" />
                     </div>
                 </div>
 
@@ -34,7 +47,9 @@ const Wsingleproduct = ({ Wid }) => {
                             <p>{wProduct.title}</p>
                         </div>
                         <div className="w-rating">
-                            <Rating name="size-small" Value={wProduct.rating} size="small" />
+                            <Rating name="size-small" defaultValue={4} size="small" readOnly
+                                precision={0.5}
+                            />
                         </div>
                     </div>
                     <div className="w-priceoffer">
@@ -47,7 +62,7 @@ const Wsingleproduct = ({ Wid }) => {
                         <p>OUT OF STOCK</p>
                     </div> */}
                     <div className="add2cart">
-                        <button>ADD TO CART</button>
+                        <button onClick={() => addToCart(wProduct.id)}>ADD TO CART</button>
                     </div>
                 </div>
             </div>

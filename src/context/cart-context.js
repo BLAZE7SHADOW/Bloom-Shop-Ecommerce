@@ -8,7 +8,7 @@ const CartProvider = ({ children }) => {
 
     const [cartId, setCartId] = useState([]);
 
-    const { notifySuccess, notifyInfo } = useGlobalLogin();
+    const { notifySuccess, notifyInfo, notifyWarn } = useGlobalLogin();
 
     const SetCartIdArray = (cartId) => {
         localStorage.setItem("CartIdArray", JSON.stringify(cartId))
@@ -21,23 +21,38 @@ const CartProvider = ({ children }) => {
     }, [cartId])
 
 
+    const ourInclude = (arr, id) => {
+        let flag = false;
+        arr.map((cartObj) => {
+            if (cartObj.id === id) {
+                flag = true;
+            }
+        })
+        return flag;
+    }
 
 
     const addToCart = (id) => {
-        console.log("hii");
-        setCartId((oldData) => {
-            return (
-                [
-                    {
-                        id: id,
-                        qnt: 1
-                    },
-                    ...oldData
-                ]
-            )
-        })
-        notifySuccess("Item Added In Cart");
-        // addCartInLocalStorage();
+
+        let flag = ourInclude(cartId, id);
+
+        if (flag === false) {
+            setCartId((oldData) => {
+                return (
+                    [
+                        {
+                            id: id,
+                            qnt: 1
+                        },
+                        ...oldData
+                    ]
+                )
+            })
+            notifySuccess("Item Added In Cart");
+        } else {
+            notifyWarn("Already Exists")
+        }
+
     }
 
     const deleteCart = (id) => {
@@ -51,7 +66,7 @@ const CartProvider = ({ children }) => {
     }
 
     return (
-        <cartContext.Provider value={{ cartId, setCartId, addToCart, deleteCart }}>
+        <cartContext.Provider value={{ cartId, setCartId, addToCart, deleteCart, ourInclude }}>
             {children}
         </cartContext.Provider>
     )

@@ -10,6 +10,7 @@ import { ToastContainer } from 'react-toastify';
 import Cart from './components/CART/Cart';
 import SingleProduct from './components/SINGLE-PRODUCT/SingleProduct';
 import Wishlist from './components/WISHLIST/Wishlist';
+import Aproduct from './components/ALLPRODUCT/APRODUCT/Aproduct';
 
 
 
@@ -22,6 +23,7 @@ function App() {
     <div className="App">
 
       <Navbar />
+      {/* <Aproduct /> */}
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/login' element={<Login />} />

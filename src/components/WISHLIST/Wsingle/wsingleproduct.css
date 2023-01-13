@@ -36,12 +36,14 @@
 .ww-img {
     width: 90px;
     height: 100px;
+
     /* background-color: rgb(193, 118, 118); */
     border: 0.3px solid rgba(0, 0, 0, 0.3);
     padding: 5px;
 }
 
 .ww-img img {
+    object-fit: contain;
     width: 100%;
     height: 100%;
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { useEffect } from 'react';
 import './SingleProduct.css'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Rating from '@mui/material/Rating';
 import SellIcon from '@mui/icons-material/Sell';
 import Box from '@mui/material/Box';
@@ -22,15 +22,18 @@ const SingleProduct = () => {
     const [productDetail, setProductDetail] = useState();
     const [productImg, setProductImg] = useState();
     const [heartClassName, setHeartClassName] = useState('heart-before');
-    const { cartId, addToCart } = useGlobalCart();
-    const { addToWishlist } = useGlobalWishlist();
+    const [heartColor, setHeartColor] = useState('#c1c5c2');
+    const { cartId, addToCart, ourInclude } = useGlobalCart();
+    const { wishId, addToWishlist } = useGlobalWishlist();
 
     const { id } = useParams();
+
+    const navigate = useNavigate();
 
     const getProductDetails = async (id) => {
         let res = await axios.get(`https://dummyjson.com/products/${id}`)
         setProductDetail(res.data);
-        setProductImg(res.data.thumbnail)
+        setProductImg(res.data.images[0])
     }
 
 
@@ -45,11 +48,6 @@ const SingleProduct = () => {
     }
 
 
-    // {cartId.filter((item) =>
-    //     item.id === productDetail.id ?
-    //         "GO TO CART" :
-    //         "ADD TO CART"
-    // )} () => setHeartClassName(heartClassName == "heart-before" ? "heart-after" : "heart-before")
 
 
 
@@ -76,6 +74,7 @@ const SingleProduct = () => {
                                     <span className='heart'>
                                         <IconButton onClick={() => wishlistHeart(productDetail.id)}>
                                             <FavoriteIcon className={heartClassName} />
+                                            {/* <FavoriteIcon style={{ color: heartColor }} /> */}
                                         </IconButton>
                                     </span>
                                     <img src={productImg} alt="" />
@@ -84,7 +83,15 @@ const SingleProduct = () => {
                         </div>
                         <div className="buyAdd">
                             <div className="addtocart">
-                                <button className='baby addcart' onClick={() => addToCart(productDetail.id)}><AddShoppingCartIcon className='ficon' /><b>ADD TO CART</b></button>
+                                {
+                                    ourInclude(cartId, productDetail.id) ?
+                                        <button className='baby addcart' onClick={() => navigate('/cart')}>
+                                            <AddShoppingCartIcon className='ficon' /><b>GO TO CART</b>
+                                        </button> :
+                                        <button className='baby addcart' onClick={() => addToCart(productDetail.id)}>
+                                            <AddShoppingCartIcon className='ficon' /><b>ADD TO CART</b>
+                                        </button>
+                                }
                             </div>
                             <div className="buynow">
                                 <button className='baby buy'><FlashOnIcon className='ficon' /><b>BUY NOW</b></button>
