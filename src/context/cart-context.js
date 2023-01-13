@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { useGlobalLogin } from "./login-context";
 
 
@@ -14,11 +14,17 @@ const CartProvider = ({ children }) => {
         localStorage.setItem("CartIdArray", JSON.stringify(cartId))
     };
 
+
+
     useEffect(() => {
         SetCartIdArray(cartId);
     }, [cartId])
 
+
+
+
     const addToCart = (id) => {
+        console.log("hii");
         setCartId((oldData) => {
             return (
                 [
@@ -31,9 +37,11 @@ const CartProvider = ({ children }) => {
             )
         })
         notifySuccess("Item Added In Cart");
+        // addCartInLocalStorage();
     }
 
     const deleteCart = (id) => {
+
         setCartId((oldData) => {
             return oldData.filter((val) => {
                 return val.id != id;

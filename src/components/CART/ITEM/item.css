@@ -52,6 +52,35 @@ input[type='checkbox'] {
     -webkit-box-orient: vertical;
 }
 
+.item-price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.i-price {
+    font-size: 1.3rem;
+    font-weight: 600;
+
+}
+
+.i-discount {
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, 0.6);
+    align-self: flex-end;
+}
+
+.i-discountedPer {
+    color: green;
+    font-weight: 600;
+    font-size: 1.1rem;
+    align-self: flex-end;
+}
+
+
 .qty-modify {
     display: flex;
     justify-content: flex-start;

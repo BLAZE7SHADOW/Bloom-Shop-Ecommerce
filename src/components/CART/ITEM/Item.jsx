@@ -43,7 +43,15 @@ const Item = ({ cartIdQnt }) => {
                         precision={0.5}
                     />
                 </p>
-                <p>&#8377;{cartData.price * 40}/-</p>
+
+                <div className='item-price'>
+                    <span className='i-price'>&#8377;{(cartData.price * 40 - (cartData.price * 40 * cartData.discountPercentage / 100
+                    )).toFixed(0)}</span>
+                    <span className='i-discount'>&#8377;{cartData.price * 40}</span>
+                    <span className='i-discountedPer'>{(cartData.discountPercentage).toFixed(0)}% off</span>
+                </div>
+
+
                 <div className="qty-modify">
                     {/* <p>{cartIdQnt.qnt}</p> */}
                     <select name="" id="">
