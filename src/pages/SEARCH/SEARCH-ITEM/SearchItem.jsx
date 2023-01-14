@@ -2,13 +2,13 @@ import React from 'react'
 import './searchitem.css'
 import Rating from '@mui/material/Rating';
 
-const SearchItem = () => {
+const SearchItem = ({ searchItemData }) => {
 
     return (
         <div className='ip-body'>
             <div className='ip-img'>
                 <div className='ip-image'>
-                    <img src="https://m.media-amazon.com/images/I/71VB1UTcYkL._AC_UY327_FMwebp_QL65_.jpg" alt="Girl in a jacket" />
+                    <img src={searchItemData.images[0]} alt="Girl in a jacket" />
                 </div>
                 <div className='ip-option'>
                     <span>hi</span>

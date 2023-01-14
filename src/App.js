@@ -29,7 +29,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/all-product' element={<Allproduct />} />
-        <Route path='/search' element={<Search />} />
+        <Route path='/search/:id' element={<Search />} />
         <Route path='/single-product/:id' element={<SingleProduct />} />
         <Route path='/wishlist' element={<Wishlist />} />
       </Routes>

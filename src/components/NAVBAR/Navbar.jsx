@@ -17,11 +17,16 @@ import { useGlobalWishlist } from '../../context/wishlist-context'
 export default function Navbar() {
 
     const [isMenu, setIsMenu] = useState(false);
+    const [input, setInput] = useState();
 
     const { cartId } = useGlobalCart();
     const { wishId } = useGlobalWishlist();
 
     const navigate = useNavigate();
+
+    const setSearchInput = (event) => {
+        setInput(event.target.value);
+    }
 
     return (
         <>
@@ -68,8 +73,8 @@ export default function Navbar() {
                 <div className="third-search">
 
                     <div className="search">
-                        <input type="text" className="searchTerm" placeholder="What are you looking for?" />
-                        <button type="submit" className="searchButton" ><SearchIcon /></button>
+                        <input type="text" className="searchTerm" placeholder="What are you looking for?" onChange={setSearchInput} />
+                        <button type="submit" className="searchButton" onClick={() => navigate(`/search/${input}`)}><SearchIcon /></button>
                     </div>
                     <div onClick={() => navigate('/wishlist')} className="wishlist-img">
                         {/* <img src="https://cdn-icons-png.flaticon.com/512/2724/2724657.png" alt="" /> */}
