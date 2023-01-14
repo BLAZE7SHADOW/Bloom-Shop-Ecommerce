@@ -5,6 +5,7 @@ import Item from './ITEM/Item'
 import Emptycart from './EMPTYCART/Emptycart'
 import { useNavigate } from 'react-router-dom'
 import { useGlobalLogin } from '../../context/login-context'
+import LoginToView from './LOGINTOVIEW/LoginToView'
 
 const Cart = () => {
 
@@ -75,7 +76,8 @@ const Cart = () => {
                     </div>
 
                 </div> : <Emptycart /> :
-            <div><button onClick={() => navigate('/login')}>Login to view Cart</button></div>
+            <LoginToView />
+
 
     )
 }

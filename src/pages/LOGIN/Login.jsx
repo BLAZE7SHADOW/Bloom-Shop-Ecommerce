@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useGlobalLogin } from "../context/login-context";
+import { useGlobalLogin } from "../../context/login-context";
 import './login.css';
 
 
@@ -12,7 +12,7 @@ const Login = () => {
 
     useEffect(() => {
         if (userToken) {
-            navigate('/')
+            navigate(-1)
         }
     })
 

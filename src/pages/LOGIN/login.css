@@ -9,7 +9,7 @@
 .login-body .img {
     height: 100%;
     width: 100%;
-    background-image: url('../Image/login-body.jpg');
+    background-image: url('../../Image/login-body.jpg');
     display: flex;
     align-items: flex-start;
     justify-content: center;
