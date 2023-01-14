@@ -1,26 +1,32 @@
 import React from 'react';
 import Rating from '@mui/material/Rating';
+import './aproduct.css';
+import { useNavigate } from 'react-router-dom';
 
-const Aproduct = () => {
+const Aproduct = ({ data }) => {
+
+    const navigate = useNavigate();
+
     return (
-        <div className='a-product'>
-            <div className='a-center'>
-                <div className='a-img'>
-                    <img src="https://m.media-amazon.com/images/I/91TW7S4VB-L._AC_UY327_FMwebp_QL65_.jpg" alt="Girl in a jacket" />
+        <div className='a-product' onClick={() => navigate(`/single-product/${data.id}`)}>
+            <div className='a-img'>
+                <img src={data.images[0]} alt="Girl in a jacket" />
+            </div>
+            <div className='a-disc'>
+                <div className='a-tittle'>
+                    <p className='tittle'><b>{data.title}</b></p>
+                    <p className='discription'>{data.description}</p>
                 </div>
-                <div className='a-disc'>
-                    <div className='a-tittle'>
-                        <p>hp laptop victous</p>
-                        <p>best lap for gaming uotill now</p>
-                    </div>
-                    <div className='a-rating'>
-                        <Rating name="read-only" value={4} readOnly />
-                    </div>
-                    <div className='a-price'>
-                        <p>&#8377;9876/-</p>
-                    </div>
+                <div className='a-rating'>
+                    <Rating name="read-only" value={data.rating} precision={0.5} readOnly />
+                </div>
+                <div className='item-price'>
+                    <span className='i-price'>&#8377;{(data.price * 40 - (data.price * 40 * data.discountPercentage / 100
+                    )).toFixed(0)}</span>
+                    <span className='i-discount'>&#8377;{data.price * 40}</span>
+                    <span className='i-discountedPer'>{(data.discountPercentage).toFixed(0)}% off</span>
+                </div>
 
-                </div>
             </div>
         </div>
     )

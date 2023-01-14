@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import '../Wsingle/wsingleproduct.css';
 import DeleteIcon from '@mui/icons-material/Delete';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Rating from '@mui/material/Rating';
 import axios from 'axios';
 import { useGlobalWishlist } from '../../../context/wishlist-context';
 import { useGlobalCart } from '../../../context/cart-context';
+import { useNavigate } from 'react-router-dom';
 
 
 const Wsingleproduct = ({ Wid }) => {
@@ -12,7 +14,9 @@ const Wsingleproduct = ({ Wid }) => {
     const [wProduct, setWproduct] = useState([]);
 
     const { deleteWishlistSingleData } = useGlobalWishlist();
-    const { addToCart } = useGlobalCart();
+    const { cartId, addToCart, ourInclude } = useGlobalCart();
+
+    const navigate = useNavigate()
 
 
 
@@ -62,7 +66,16 @@ const Wsingleproduct = ({ Wid }) => {
                         <p>OUT OF STOCK</p>
                     </div> */}
                     <div className="add2cart">
-                        <button onClick={() => addToCart(wProduct.id)}>ADD TO CART</button>
+                        {/* <button onClick={() => addToCart(wProduct.id)}>ADD TO CART</button> */}
+                        {
+                            ourInclude(cartId, wProduct.id) ?
+                                <button onClick={() => navigate('/cart')}>
+                                    <b>GO TO CART</b>
+                                </button> :
+                                <button onClick={() => addToCart(wProduct.id)}>
+                                    <b>ADD TO CART</b>
+                                </button>
+                        }
                     </div>
                 </div>
             </div>

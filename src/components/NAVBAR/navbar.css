@@ -92,6 +92,28 @@
   height: 30px;
 }
 
+.cart-img {
+  position: relative;
+}
+
+.cart-img .cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: green;
+  color: white;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+
+.heart-icon,
+.cart-icon {
+  color: black !important;
+  font-size: 1.8rem !important;
+}
+
+
 
 
 /* //search box */

@@ -8,9 +8,6 @@ const WishlistProvider = ({ children }) => {
 
     const [wishId, setWishId] = useState([]);
 
-    useEffect(() => {
-        console.log(wishId);
-    }, [wishId])
 
     const addToWishlist = (id) => {
         if (wishId.includes(id)) {

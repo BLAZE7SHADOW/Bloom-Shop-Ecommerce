@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
@@ -48,6 +49,10 @@ const SingleProduct = () => {
     }
 
 
+    const heartColorObj = {
+        color: productDetail ? wishId.includes(productDetail.id) ? "red" : "#c1c5c2" : '#c1c5c2'
+    }
+
 
 
 
@@ -73,8 +78,8 @@ const SingleProduct = () => {
                                 <div className="b-img">
                                     <span className='heart'>
                                         <IconButton onClick={() => wishlistHeart(productDetail.id)}>
-                                            <FavoriteIcon className={heartClassName} />
-                                            {/* <FavoriteIcon style={{ color: heartColor }} /> */}
+                                            {/* <FavoriteIcon className={heartClassName} /> */}
+                                            <FavoriteIcon style={heartColorObj} />
                                         </IconButton>
                                     </span>
                                     <img src={productImg} alt="" />
@@ -86,7 +91,7 @@ const SingleProduct = () => {
                                 {
                                     ourInclude(cartId, productDetail.id) ?
                                         <button className='baby addcart' onClick={() => navigate('/cart')}>
-                                            <AddShoppingCartIcon className='ficon' /><b>GO TO CART</b>
+                                            <ShoppingCartCheckoutIcon className='ficon' /><b>GO TO CART</b>
                                         </button> :
                                         <button className='baby addcart' onClick={() => addToCart(productDetail.id)}>
                                             <AddShoppingCartIcon className='ficon' /><b>ADD TO CART</b>

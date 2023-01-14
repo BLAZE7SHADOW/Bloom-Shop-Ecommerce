@@ -6,12 +6,20 @@ import Menu from '../MENU/Menu'
 import logoo from '../../Image/logoo.png';
 import HomeIcon from '@mui/icons-material/Home';
 import ShopIcon from '@mui/icons-material/Shop';
+import Badge from '@mui/material/Badge';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useGlobalCart } from '../../context/cart-context'
+import { useGlobalWishlist } from '../../context/wishlist-context'
 
 
 
 export default function Navbar() {
 
     const [isMenu, setIsMenu] = useState(false);
+
+    const { cartId } = useGlobalCart();
+    const { wishId } = useGlobalWishlist();
 
     const navigate = useNavigate();
 
@@ -33,9 +41,7 @@ export default function Navbar() {
                     <div className="first-left-detail">
                         <ul>
                             <li onClick={() => navigate('/')}><HomeIcon /></li>
-                            <li><ShopIcon /></li>
-                            {/* <li>Contact Us</li>
-                            <li>Customer Help</li> */}
+                            <li onClick={() => navigate('/all-product')}><ShopIcon /></li>
                         </ul>
                     </div>
                 </div>
@@ -65,8 +71,18 @@ export default function Navbar() {
                         <input type="text" className="searchTerm" placeholder="What are you looking for?" />
                         <button type="submit" className="searchButton" ><SearchIcon /></button>
                     </div>
-                    <div onClick={() => navigate('/wishlist')} className="wishlist-img"><img src="https://cdn-icons-png.flaticon.com/512/2724/2724657.png" alt="" /></div>
-                    <div onClick={() => navigate('/cart')} className="cart-img"><img src="https://cdn-icons-png.flaticon.com/512/748/748065.png" alt="" />
+                    <div onClick={() => navigate('/wishlist')} className="wishlist-img">
+                        {/* <img src="https://cdn-icons-png.flaticon.com/512/2724/2724657.png" alt="" /> */}
+                        <Badge badgeContent={wishId.length} color="primary">
+                            <FavoriteIcon className="heart-icon" color="action" />
+                        </Badge>
+                    </div>
+                    <div onClick={() => navigate('/cart')} className="cart-img">
+                        {/* <span className="cart-count">1</span>
+                        <img src="https://cdn-icons-png.flaticon.com/512/748/748065.png" alt="" /> */}
+                        <Badge badgeContent={cartId.length} color="primary">
+                            <ShoppingCartIcon className="cart-icon" color="action" />
+                        </Badge>
                     </div>
 
                 </div>

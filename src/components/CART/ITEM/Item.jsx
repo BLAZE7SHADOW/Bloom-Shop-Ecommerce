@@ -17,7 +17,7 @@ const Item = ({ cartIdQnt }) => {
     const [heartClassName, setHeartClassName] = useState('heart-before');
 
     const { deleteCart } = useGlobalCart();
-    const { addToWishlist } = useGlobalWishlist();
+    const { wishId, addToWishlist } = useGlobalWishlist();
 
     const getCartData = async (id) => {
         let res = await axios.get(`https://dummyjson.com/products/${id}`)
@@ -28,7 +28,9 @@ const Item = ({ cartIdQnt }) => {
         setHeartClassName(heartClassName == "heart-before" ? "heart-after" : "heart-before")
         addToWishlist(cartData.id);
     }
-
+    const heartColorObj = {
+        color: cartData ? wishId.includes(cartData.id) ? "red" : "#c1c5c2" : '#c1c5c2'
+    }
     useEffect(() => {
         getCartData(cartIdQnt.id);
     }, [cartIdQnt])
@@ -41,7 +43,7 @@ const Item = ({ cartIdQnt }) => {
                 <input type="checkbox" name="" id="" />
             </div>
             <NavLink to={`/single-product/${cartData.id}`} className="item-img">
-                <div>
+                <div className='cart-single-image'>
                     <img src={cartData.images[0]} alt="" />
                 </div>
             </NavLink>
@@ -72,7 +74,7 @@ const Item = ({ cartIdQnt }) => {
                     </select>
                     <span onClick={() => deleteCart(cartData.id)}>delete</span>
                     <span>
-                        <FavoriteIcon className={heartClassName} onClick={() => setWishlistCart(cartData.id)} />
+                        <FavoriteIcon className={heartClassName} style={heartColorObj} onClick={() => setWishlistCart(cartData.id)} />
                     </span>
                 </div>
 
