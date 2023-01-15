@@ -69,14 +69,15 @@
 .ip-price-head {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    padding: 5px;
 }
 
 
 .ip-price {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 600;
 
 }
@@ -85,12 +86,13 @@
     text-decoration: line-through;
     color: rgba(0, 0, 0, 0.6);
     align-self: flex-end;
+    font-weight: 600;
 }
 
 .ip-discountedPer {
     color: green;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     align-self: flex-end;
 }
 

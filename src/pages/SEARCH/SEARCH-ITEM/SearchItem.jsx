@@ -18,23 +18,23 @@ const SearchItem = ({ searchItemData }) => {
             <div className='ip-disc'>
                 <div className='ip-title'>
                     <div className='ip-title-head'>
-                        <p><b>Lenovo IdeaPad Slim 1 AMD Ryzen 3 3250U 15.6" (39.62cm) FHD Thin & Light Laptop</b></p>
+                        <p><b>{searchItemData.title}</b></p>
                     </div>
                     <div className='ip-title-disc'>
-                        <p><b>(8GB/512GB SSD/Windows 11/Office 2021/3months Game Pass/Cloud Grey/1.6Kg), 82R10049IN</b></p>
+                        <p><b>{searchItemData.description}</b></p>
                     </div>
                 </div>
                 <div className='ip-rating'>
-                    <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
+                    <Rating name="half-rating-read" defaultValue={searchItemData.rating} precision={0.5} readOnly />
                 </div>
-                {/* <div className='ip-price-head'>
-                    <span className='ip-price'>&#8377;{(data.price * 40 - (data.price * 40 * data.discountPercentage / 100
+                <div className='ip-price-head'>
+                    <span className='ip-price'>&#8377;{(searchItemData.price * 40 - (searchItemData.price * 40 * searchItemData.discountPercentage / 100
                     )).toFixed(0)}</span>
-                    <span className='ip-discount'>&#8377;{data.price * 40}</span>
-                    <span className='ip-discountedPer'>{(data.discountPercentage).toFixed(0)}% off</span>
-                </div> */}
+                    <span className='ip-discount'>&#8377;{searchItemData.price * 40}</span>
+                    <span className='ip-discountedPer'>{(searchItemData.discountPercentage).toFixed(0)}% off</span>
+                </div>
                 <div className='ip-bankoffer'>
-                    <p>Save extra with NO Cost EMI</p>
+                    <p>Save extra with <b>NO Cost EMI</b></p>
                 </div>
                 <div className='ip-Delivery'>
                     <p className='ip-date'>Get it by Tuesday, <b>January 17</b></p>

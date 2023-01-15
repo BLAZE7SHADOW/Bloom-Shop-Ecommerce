@@ -135,7 +135,9 @@
 }
 
 .searchTerm:focus {
-  color: #00B4CC;
+  color: #010505;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
 .searchButton {
