@@ -11,6 +11,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useGlobalCart } from '../../context/cart-context'
 import { useGlobalWishlist } from '../../context/wishlist-context'
+import { useGlobalLogin } from "../../context/login-context";
 
 
 
@@ -21,6 +22,7 @@ export default function Navbar() {
 
     const { cartId } = useGlobalCart();
     const { wishId } = useGlobalWishlist();
+    const { userToken, userLogOut, userDetails } = useGlobalLogin();
 
     const navigate = useNavigate();
 
@@ -54,9 +56,15 @@ export default function Navbar() {
                     <img src={logoo} alt="" />
                 </div>
                 <div className="first-right">
-                    <div className="account-img"><div><img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="" /></div><div><h5>Sign In</h5><h4>Account</h4></div></div>
-                    {/* navigate */}
+                    {
+                        userToken ?
+                            <div onClick={() => navigate('/login')} className="account-img"><div><img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="" /></div><div><h5>Sign In</h5><h4>Account</h4></div></div>
+                            :
+                            <div>logout</div>
+                    }
                 </div>
+
+
             </div>
 
             {/* third div for details  */}
