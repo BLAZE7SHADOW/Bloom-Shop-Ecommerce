@@ -58,9 +58,10 @@ export default function Navbar() {
                 <div className="first-right">
                     {
                         userToken ?
-                            <div onClick={() => navigate('/login')} className="account-img"><div><img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="" /></div><div><h5>Sign In</h5><h4>Account</h4></div></div>
-                            :
                             <div>logout</div>
+                            :
+                            <div onClick={() => navigate('/login')} className="account-img"><div><img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="" /></div><div><h5>Sign In</h5><h4>Account</h4></div></div>
+
                     }
                 </div>
 
