@@ -30,7 +30,7 @@ const Search = () => {
             </div>
             <div className='p-search-main'>
                 <div className='p-filter'>
-                    <h1>hhhhh</h1>
+                    <h1>filter space</h1>
                 </div>
                 <div className='p-search'>
                     <div className='p-search-items'>
