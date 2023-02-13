@@ -68,7 +68,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 25px;
+  padding-right: 10px;
 
 }
 
@@ -156,10 +157,51 @@
   .third-right {
     display: none;
   }
+
+  .third-div {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width:400px) and (max-width: 600px) {
   .search {
-    width: 220px;
+    width: 250px;
+  }
+
+  .third-div {
+    padding-left: 20px;
+    padding-right: 10px;
+  }
+}
+
+@media screen and (min-width:350px) and (max-width: 400px) {
+  .search {
+    width: 230px;
+  }
+
+  .third-search {
+    gap: 1rem;
+  }
+
+  .third-div {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .search {
+    width: 200px;
+  }
+
+  .third-search {
+    gap: 0.5rem;
+  }
+
+  .third-div {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }

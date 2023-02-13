@@ -4,12 +4,7 @@
     --display-flex: flex;
 }
 
-.body-main {
-    /* display: flex;
-    justify-content: space-evenly;
-    padding-top: 5px; */
-
-}
+.body-main {}
 
 
 .carousel-status {
@@ -20,93 +15,32 @@
     display: none;
 }
 
-.body_img,
-.body-main-middle,
 .carousel-root,
-.carousel-slider {
-    height: 100%;
+.carousel-slider,
+.carousel .slider-wrapper {
+    height: 100% !important;
+}
+
+.carousel .slider.animated {
+    height: 100% !important;
+}
+
+.slide div {
+    height: 100% !important;
+}
+
+.carousel.carousel-slider {
+    height: 100% !important;
+}
+
+.body-main-middle {
+    height: 600px;
 }
 
 .body-main-middle img {
-    width: 80vw;
-    height: 620px;
-    object-fit: contain;
+    height: 100%;
+    width: 100%;
 }
-
-/* .body-main-left,
-.body-main-right {
-    height: 360px;
-    width: 300px;
-    animation: Move 25s infinite 0s;
-} */
-
-/* .body-main-left h2,
-.body-main-right h2 {
-    margin-bottom: 15px;
-} */
-
-/* .body-main-left img {
-
-    padding: 20px 10px 10px 10px;
-    height: 140px;
-    width: 140px;
-} */
-
-/* .body-main-right img {
-    padding: 15px 15px 15px 15px;
-    height: 140px;
-    width: 140px;
-}
-
-.body-main-left .IMAGES,
-.body-main-right .IMAGES {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-} */
-
-/* 
-@keyframes Move {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(145px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-.body-main-left:hover,
-.body-main-right:hover {
-    animation: normal;
-} */
-
-/* .category {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100vw;
-}
-
-.category .product {
-    object-fit: contain;
-}
-
-.product img {
-    padding: 5px;
-    min-height: 30px;
-    max-height: 70px;
-    width: auto;
-} */
-
-
-
-
 
 
 
@@ -268,4 +202,37 @@
     flex-direction: column;
 
     width: 100%;
+}
+
+
+/* @media screen and (max-width:1000px){
+    .body-main-middle {
+        height: 400px;
+    }
+} */
+@media screen and (max-width:1000px) {
+
+    .body-main-middle {
+        height: 400px;
+    }
+
+    .carousel-root,
+    .carousel-slider {
+        max-height: 400px;
+    }
+
+    .carousel.carousel-slider .control-arrow {
+        top: 180px;
+    }
+
+}
+
+@media screen and (max-width:700px) {
+    .body-main-middle {
+        height: 300px;
+    }
+
+    .carousel.carousel-slider .control-arrow {
+        top: 120px;
+    }
 }
