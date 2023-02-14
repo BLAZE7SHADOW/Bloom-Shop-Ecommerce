@@ -158,6 +158,11 @@
     display: none;
   }
 
+  .search {
+    width: 420px;
+  }
+
+
   .third-div {
     padding-left: 25px;
     padding-right: 25px;
