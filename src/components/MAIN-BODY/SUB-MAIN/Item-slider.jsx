@@ -14,7 +14,7 @@ import Skeleton from '@mui/material/Skeleton';
 
 export default function Itemslider({ category }) {
 
-    const [noOfItems, setNoOfItems] = useState(4);
+    const [noOfItems, setNoOfItems] = useState(5);
     const [todaysAllDeals, setAllDeals] = useState();
 
 
@@ -32,6 +32,20 @@ export default function Itemslider({ category }) {
 
 
     useEffect(() => {
+        let deviceWidth = window.innerWidth;
+        if (deviceWidth < 620 && deviceWidth > 500) {
+            setNoOfItems(4);
+        }
+        else if (deviceWidth < 499) {
+            setNoOfItems(3)
+        }
+        // else if (deviceWidth < 800 && deviceWidth > 600) {
+        //     setNoOfItems(2)&& deviceWidth > 600
+        // }
+        // } else if (deviceWidth < 600) {
+        //     setNoOfItems(2)
+        // }
+
         getData()
     }, [])
 
