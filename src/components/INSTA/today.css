@@ -11,13 +11,13 @@
 }
 
 .topdeals {
-    height: 300px;
+    /* height: 300px; */
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 25px 0px;
     width: 100vw;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .topdeals .img {
@@ -26,11 +26,50 @@
 
 
 .topdeals img {
-
-    height: 280px;
-    width: 230px;
+    height: 250px;
+    width: 15vw;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+@media screen and (max-width:1200px) {
+    .topdeals img {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .topdeals img {
+        height: 180px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .topdeals img {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .topdeals img {
+        height: 120px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .topdeals img {
+        height: 100px;
+    }
+
+    .topdeals {
+        padding: 10px 0px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .topdeals img {
+        height: 80px;
+    }
 }

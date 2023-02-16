@@ -4,7 +4,7 @@
     --display-flex: flex;
 }
 
-.body-main {}
+/* .body-main {} */
 
 
 .carousel-status {
@@ -273,5 +273,28 @@
 @media screen and (max-width: 580px) {
     .related-items {
         height: 160px;
+    }
+
+
+}
+
+@media screen and (max-width: 500px) {
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none;
+    }
+
+    .related-items {
+        box-shadow: 2px 2px 5px 7px rgb(0 0 0 / 20%);
+        margin: 20px 6px;
+    }
+
+    .brandlogodiv {
+        margin: 15px 1px 15px 1px;
+    }
+
+    .category {
+        gap: 1px;
     }
 }
