@@ -34,7 +34,6 @@
 
 .imageBuy img {
     width: 100%;
-
 }
 
 
@@ -369,4 +368,95 @@ input[type="number"] {
     align-items: center;
     flex-direction: column;
     gap: 20px;
+}
+
+
+
+@media screen and (max-width:800px) {
+    .singleProductDetail {
+        padding: 20px 0px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .mainDetail {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .imageBuy {
+        position: static;
+        align-self: center;
+        width: 98%;
+
+    }
+
+    .b-img {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0.3px solid rgba(0, 0, 0, 0.1);
+        min-width: 200px;
+        min-height: 400px;
+        position: relative;
+    }
+
+    .bigImage img {
+        min-height: 100px;
+        max-height: 500px;
+        object-fit: contain;
+    }
+}
+
+@media screen and (max-width:500px) {
+
+    .productImages {
+        min-height: 300px;
+        gap: 6px;
+    }
+
+    .imageArray {
+        width: 20%;
+        padding: 10px 0px 10px 10px;
+        gap: 9px;
+    }
+
+    .bigImage {
+        width: 75%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1px;
+        padding-left: 10px;
+        align-self: flex-start;
+    }
+
+    .buyAdd {
+        margin-top: 10px;
+        margin-bottom: -5px;
+    }
+
+    .productDetail {
+        width: 100%;
+        padding: 12px;
+        padding-top: 0px;
+    }
+
+    .offers {
+        margin: 0px 0px;
+    }
+
+    .brandnamepricerating {
+        gap: 2px;
+    }
+
+    .productdesc {
+
+        margin: 0px 0px;
+        padding: 10px 0px;
+        gap: 0px;
+        margin-bottom: 6px;
+    }
 }
