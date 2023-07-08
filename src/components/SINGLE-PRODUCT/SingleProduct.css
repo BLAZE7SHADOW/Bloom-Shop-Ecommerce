@@ -370,7 +370,60 @@ input[type="number"] {
     gap: 20px;
 }
 
+@media screen and (max-width:1300px) and (min-width:601px) {
 
+    .mainDetail {
+        width: 98%;
+        gap: 10px;
+    }
+
+    .imageBuy {
+        width: 40%;
+
+    }
+
+    /* 
+    .productImages {
+        /* min-height: 100px; 
+    } */
+
+    .imageArray {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-self: flex-start;
+        padding: 0px 0px 10px 0px;
+        gap: 10px;
+    }
+
+    .imageArray img {
+        height: 65px;
+        width: 100%;
+    }
+
+    .bigImage {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1px;
+        padding-left: 20px;
+        align-self: flex-start;
+    }
+
+    .b-img {
+        padding: 10px;
+        min-width: 180px;
+        min-height: 370px;
+        position: relative;
+    }
+
+    .productDetail {
+        width: 60%;
+
+    }
+}
 
 @media screen and (max-width:800px) {
     .singleProductDetail {
@@ -388,6 +441,7 @@ input[type="number"] {
         position: static;
         align-self: center;
         width: 98%;
+        margin-bottom: 20px;
 
     }
 
@@ -399,7 +453,7 @@ input[type="number"] {
         align-items: center;
         border: 0.3px solid rgba(0, 0, 0, 0.1);
         min-width: 200px;
-        min-height: 400px;
+        min-height: 390px;
         position: relative;
     }
 
@@ -434,7 +488,7 @@ input[type="number"] {
     }
 
     .buyAdd {
-        margin-top: 10px;
+        margin-top: 15px;
         margin-bottom: -5px;
     }
 
@@ -458,5 +512,12 @@ input[type="number"] {
         padding: 10px 0px;
         gap: 0px;
         margin-bottom: 6px;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .mainfooter {
+        padding: 0px 5px;
+        gap: 2px;
     }
 }

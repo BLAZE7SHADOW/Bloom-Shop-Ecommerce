@@ -11,7 +11,7 @@ const Allproduct = () => {
     const [allData, setAllData] = useState([]);
 
     const getAllProductData = async () => {
-        let resp = await axios.get('https://dummyjson.com/products');
+        let resp = await axios.get('https://dummyjson.com/products?limit=100');
         setAllData(resp.data.products);
     }
 
